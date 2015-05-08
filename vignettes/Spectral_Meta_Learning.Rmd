@@ -1,0 +1,24 @@
+---
+title: "Spectral Meta Learning"
+author: "Robert Turner"
+date: "May 7, 2015"
+output: rmarkdown::html_vignette
+vignette:
+%\VignetteIndexEntry{Spectral Meta Learning of Continuous Predictors}
+%\VignetteEngine{knitr::rmarkdown} \usepackage[utf8](inputenc)
+---
+```{r, echo = FALSE}
+library(RSkittleBrewer)
+```
+
+rSML is a package to utilize the Spectral Meta Learning algorithm to combine multiple predictions of the same target to create a better prediction. It utilizes eigenvectors to identify which predictions are the most accuracy based off the values of the other predictions, and also identify which predictions are terrible and should be ignored. This is typically useful when combining the work of multiple people or groups. For example, in a group project each member could work on their own predictions then combine them with this package. They could also plot the estimated balanced accuracies of each prediction.
+
+#Examples
+
+Using this package is easy, the only step is making sure the predictions are in the right format. Each group should be the rows of a matrix, and the predictions made by each group should be the columns. The data should be given in a matrix, after that the usage is simply:
+```{r, eval = FALSE}
+predictions = eigensml(multiplePredictors)
+predictions = svdsml(multiplePredictors)
+plotaccuracies(multiplePredictors)
+```
+
