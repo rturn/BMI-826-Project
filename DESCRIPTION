@@ -5,5 +5,5 @@ Description: Combine multiple predictions or plot their estimated accuracies
 License: MIT + file LICENSE
 Author: Robert Turner <rwturner@wisc.edu>
 Maintainer: Robert Turner <rwturner@wisc.edu>
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, testthat
 VignetteBuilder: knitr

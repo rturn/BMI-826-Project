@@ -10,6 +10,7 @@
 #' @export
 #' 
 eigensml = function(predictors) {
+  stopifnot(nrow(predictors) < ncol(predictors))
   e = eigen(predictors%*%t(predictors))
   accuracies = e$vectors[,1]
   total = sum(accuracies)
@@ -30,6 +31,7 @@ eigensml = function(predictors) {
 #' @export
 #'
 svdsml = function(predictors) {
+  stopifnot(nrow(predictors) < ncol(predictors))
   s = svd(predictors)
   accuracies = s$u[,1]
   total = sum(accuracies)
@@ -49,6 +51,7 @@ svdsml = function(predictors) {
 #' @export
 #'
 plotaccuracies = function(predictors) {
+  stopifnot(nrow(predictors) < ncol(predictors))
   s = svd(predictors)
   accuracies = abs(s$u[,1])
   plot(accuracies, ylab = "Balanced Accuracy of Predictor", main = "Eigenplot of Predictor Matrix")
